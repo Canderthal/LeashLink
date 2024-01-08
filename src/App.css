@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+
 }
 
 .App-logo {
@@ -35,4 +36,128 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+h2 {
+  color: white;
+}
+
+h3 {
+  color: white;
+}
+
+.app-background {
+  background: rgb(220,242,241);
+  background: linear-gradient(0deg, rgba(220,242,241,0.5) 0%, rgba(127,199,217,0.5) 100%);
+  height: 100vh
+}
+
+.loginMenu {
+  border-radius: 25px;
+  width: 40vh;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: #0097b22c;
+  box-shadow: 0 0 5px #00333b;
+}
+
+.loginMenu button {
+  border-radius: 25px;
+  margin-top: 20px;
+  width: 125px;
+  border: none;
+  background-color: #0097B2;
+  color: white;
+
+}
+
+.login {
+  background-color: #0097B2;
+  margin: 15px;
+  max-width: 80%;
+  color: white;
+  border-radius: 25px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+
+.login p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.login input {
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+  color: white;
+}
+
+.login input::placeholder {
+  color: white
+}
+
+.login input:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.login {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.card button {
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+  padding: 1px;
+
+}
+
+.displayBox {
+  background-color: white;
+}
+
+ul {
+  list-style: none;
+}
+
+.privateAppointments {
+  border-bottom: 1px solid black;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.privateAppointments:hover {
+  box-shadow: 0 0 5px #0097B2;
+}
+
+.startPrivateBtn {
+  background-color: rgba(141, 253, 141, 0.76);
+  color: darkgreen;
+  border: none;
+  font-size: larger;
+  font-weight: 400;
+}
+
+
+.dogInfoBtn {
+  background-color: #c8edff;
+  color: rgb(0, 60, 100);
+  border: none;
+  font-size: larger;
+  font-weight:400
+}
+
+.appointmentTitle {
+  font-size: larger;
+  font-weight: 500;
+}
+.appointmentTitle:hover {
+  color: blue;
 }
