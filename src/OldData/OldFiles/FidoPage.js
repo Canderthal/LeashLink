@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { Container, Row, Col } from "reactstrap";
 
 
+
+
 const FidoPage = () => {
     const [textContent, setTextContent] = useState();
     const [password, setPasswordValue] = useState();
@@ -13,7 +15,7 @@ const FidoPage = () => {
       setPasswordValue(document.getElementById('pwd').value);
       if (password === "Pokemon") {
         setPasswordValue("");
-        navigate('/homepage');
+        navigate('/overview');
       } else {
         setTextContent("WRONG PASSWORD");
       }
@@ -61,6 +63,7 @@ const FidoPage = () => {
                     <p></p>
                 </Col>
             </Row>
+
         </Container>
     )
 };

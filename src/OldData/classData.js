@@ -73,6 +73,28 @@ const DogTrainingClasses = {
             breed: 'Poodle',
           },
         },
+        {
+          ownerName: 'Sarah Brown',
+          phoneNumber: '555-7890',
+          email: 'sarah.brown@example.com',
+          behaviorsStrugglingWith: ['Crate Training', 'Leash Pulling'],
+          dog: {
+            name: 'Charlie',
+            age: 4,
+            breed: 'Poodle',
+          },
+        },
+        {
+          ownerName: 'Sarah Brown',
+          phoneNumber: '555-7890',
+          email: 'sarah.brown@example.com',
+          behaviorsStrugglingWith: ['Crate Training', 'Leash Pulling'],
+          dog: {
+            name: 'Charlie',
+            age: 4,
+            breed: 'Poodle',
+          },
+        },
       ],
     },
     obedienceClass: {
@@ -111,8 +133,91 @@ const DogTrainingClasses = {
             breed: 'Shih Tzu',
           },
         },
+        {
+          ownerName: 'Sarah Brown',
+          phoneNumber: '555-7890',
+          email: 'sarah.brown@example.com',
+          behaviorsStrugglingWith: ['Crate Training', 'Leash Pulling'],
+          dog: {
+            name: 'Charlie',
+            age: 4,
+            breed: 'Poodle',
+          },
+        },
+        {
+          ownerName: 'Sarah Brown',
+          phoneNumber: '555-7890',
+          email: 'sarah.brown@example.com',
+          behaviorsStrugglingWith: ['Crate Training', 'Leash Pulling'],
+          dog: {
+            name: 'Charlie',
+            age: 4,
+            breed: 'Poodle',
+          },
+        },
       ],
     },
+    obedienceClassLv2: {
+      className: 'Obedience Class Level 2',
+      students: [
+        {
+          ownerName: 'Bob Johnson',
+          phoneNumber: '555-9012',
+          email: 'bob.johnson@example.com',
+          behaviorsStrugglingWith: ['Pulling on Leash', 'Not Coming When Called'],
+          dog: {
+            name: 'Charlie',
+            age: 2,
+            breed: 'German Shepherd',
+          },
+        },
+        {
+          ownerName: 'Emily Davis',
+          phoneNumber: '555-2345',
+          email: 'emily.davis@example.com',
+          behaviorsStrugglingWith: ['Distracted During Training', 'Jumping on People'],
+          dog: {
+            name: 'Max',
+            age: 3,
+            breed: 'Dachshund',
+          },
+        },
+        {
+          ownerName: 'Chris Evans',
+          phoneNumber: '555-3456',
+          email: 'chris.evans@example.com',
+          behaviorsStrugglingWith: ['Excitability', 'Aggression Towards Other Dogs'],
+          dog: {
+            name: 'Oscar',
+            age: 4,
+            breed: 'Shih Tzu',
+          },
+        },
+        {
+          ownerName: 'Sarah Brown',
+          phoneNumber: '555-7890',
+          email: 'sarah.brown@example.com',
+          behaviorsStrugglingWith: ['Crate Training', 'Leash Pulling'],
+          dog: {
+            name: 'Charlie',
+            age: 4,
+            breed: 'Poodle',
+          },
+        },
+        {
+          ownerName: 'Sarah Brown',
+          phoneNumber: '555-7890',
+          email: 'sarah.brown@example.com',
+          behaviorsStrugglingWith: ['Crate Training', 'Leash Pulling'],
+          dog: {
+            name: 'Charlie',
+            age: 4,
+            breed: 'Poodle',
+          },
+        },
+      ],
+    },
+    
   };
   
   export default DogTrainingClasses;

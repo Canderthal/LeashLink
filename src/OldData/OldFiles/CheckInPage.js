@@ -1,14 +1,19 @@
-import Dogs from "./data/dogData";
-import DogTrainingClasses from "./data/classData"//
+import Dogs from "../OldData/dogData";
+import DogTrainingClasses from "../OldData/classData"//
+import AppointmentList from "./AppointmentList";
+//import ClassList from "./components/ClassList";
 
 import React, { useState } from 'react';
-import { Container, Row, Col, Card, CardBody, Button, CardTitle, ListGroup, ListGroupItem} from "reactstrap";
+import { Container, Row, Col, Card, CardBody, CardTitle, ListGroup, ListGroupItem,  Collapse, } from "reactstrap";
 
+/////////////////////////////////////
+// Open modal on small screens or card on larger screens
 
 const CheckInPage = () => {
   const [borderColors, setBorderColors] = useState(Array(Dogs.length).fill('lightblue'));
   const [selectedDog, setSelectedDog] = useState(null);
 
+  const ClassList = []; // Removed this when I reworked the app. Might revisit later
 
 
   const checkIn = (index) => {
@@ -30,75 +35,6 @@ const CheckInPage = () => {
     setSelectedDog(null);
   }
 
-
-
-
-
-
-  const appointments = (
-    <ul>
-      
-      {Dogs.map((dog, index) => (
-        <li
-          key={index}
-          onClick={() => checkIn(index)}
-          style={{ borderColor: borderColors[index] }}
-          className="privateAppointments"
-        >
-          <Container>
-            <Row>
-              <Col xs='1'>
-                  date
-              </Col>
-              <Col xs='8'>
-                {dog.name} - {dog.breed} - TYPE OF PRIVATE
-              </Col>
-              <Col>
-                <Button className="startPrivateBtn">Start</Button>
-              </Col>
-              <Col>
-                <Button className="dogInfoBtn">INFO</Button>
-              </Col>
-            </Row>
-          </Container>
-          {/* <Container>
-            <Row>
-              <Col sm="11" className="text-start">
-                {dog.name}
-              </Col>
-            </Row>
-            <Row>
-              <Col>{dog.breed}, {dog.age} years old, {dog.gender}, Reactive: {dog.reactive ? 'Yes' : 'No'}</Col>
-            </Row>
-          </Container> */}
-        </li>
-      ))}
-    </ul>
-  );
-
-  const classes = (
-    <ul>
-     
-        <li>
-          test content
-        </li>
-        <li>
-          test content
-        </li>
-        <li>
-          test content
-        </li>
-        <li>
-          test content
-        </li>
-        <li>
-          test content
-        </li>
-
-
-    </ul>
-  );
-
   const [activeContent, setActiveContent] = useState('appointments');
   const handleScheduleSwitch = (content) => {
     setActiveContent(content)
@@ -106,12 +42,12 @@ const CheckInPage = () => {
 
 
   return (
-    <>
+
     <Container className="mt-5">
       <Row>
       {selectedDog && (
-            <Col md='3' className="m-3">
-              <Card style={{ textAlign: "left", border: "1px solid #ddd", borderRadius: "15px" }}>
+            <Col md='3' className="m-3 mx-auto">
+              <Card className="mx-auto" style={{ textAlign: "left", border: "1px solid #ddd", borderRadius: "15px" }}>
                 <CardBody className="text-left">
                   <CardTitle tag='h5'>
                     <Row>
@@ -151,20 +87,18 @@ const CheckInPage = () => {
 
         <Col className="m-3 displayBox" style={{ border: "1px solid #ddd", borderRadius: "15px" }}>
           <Row className="m-3">
-          <Col id="appointments" className="appointmentTitle" md="2" onClick={() => { handleScheduleSwitch('appointments')}} style={{ cursor: 'pointer'}}><p>Appointments</p></Col>
-          <Col id="classes" className="appointmentTitle" md="2" onClick={() => handleScheduleSwitch('classes')} style={{ cursor: 'pointer' }}><p>Classes</p></Col>
+            <Col id="appointments" className="appointmentTitle" md="3" onClick={() => { handleScheduleSwitch('appointments')}} style={{ cursor: 'pointer'}}><p>Appointments</p></Col>
+            <Col id="classes" className="appointmentTitle" md="3" onClick={() => handleScheduleSwitch('classes')} style={{ cursor: 'pointer' }}><p>Classes</p></Col>
 
 
           </Row>
           <hr></hr>
           
-{activeContent==='appointments' ? appointments: classes}
+{activeContent==='appointments' ? <AppointmentList checkIn={checkIn} />: <ClassList /> }
 
         </Col>
       </Row>
     </Container>
-
-    </>
   );
 };
 
