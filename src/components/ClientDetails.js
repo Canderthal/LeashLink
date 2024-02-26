@@ -35,10 +35,12 @@ const ClientDetails = ({ userRole, client, index }) => {
 
   const handleSaveChanges = async () => {
     try {
+      console.log("Trying To save data")
       const clientDocRef = doc(db, clientData, client.id);
   
       // Create a copy of the dogs array with the updated trainingHistory
       const updatedDogs = [...client.dogs];
+      console.log("saving data")
       updatedDogs[index].trainingHistory = editedTrainingHistory;
   
       // Update the document with the modified 'dogs' array
@@ -58,7 +60,7 @@ const ClientDetails = ({ userRole, client, index }) => {
   }
 
   return (
-    <Container>
+    <Container className="Dashboard m-5">
       <Container className="Dashboard mb-5">
         <Row>
           <Col>
@@ -97,7 +99,7 @@ const ClientDetails = ({ userRole, client, index }) => {
         <Row>
           <Col>
             <Row>
-                <Col>
+                <Col xs="8" md='11'>
                 <h5>Training history</h5>
                 </Col>
                 <Col>
@@ -111,7 +113,7 @@ const ClientDetails = ({ userRole, client, index }) => {
             </Row>
 
             {client.dogs[index].trainingHistory.map((dog, dogIndex) => (
-              <div key={dog.id}>
+              <div key={dogIndex}>
                 {isEditing ? (
                   <>
                     <p>

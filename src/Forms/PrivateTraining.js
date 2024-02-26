@@ -1,8 +1,10 @@
-import { Container, Col, Row, Label, Button} from "reactstrap";
-import { useState } from 'react';
+import { Container, Col, Row, Label, Button, Modal, ModalBody, ModalHeader} from "reactstrap";
+import { useState, useEffect } from 'react';
 import { addDoc, collection } from 'firebase/firestore';
-import db from '../firebase'; // Import your Firebase configuration
+import db from '../firebase';
 import { Formik, Field, Form, useFormikContext } from 'formik';
+import { useNavigate } from "react-router-dom";
+
 
 
 
@@ -25,22 +27,32 @@ const ReactivityDetails = () => {
   };
   
 
-const PrivateTrainingForm = (userRole) => {
-
+const PrivateTrainingForm = ({ userRole, handleContentSwitch }) => {
   const [clientData, setClientData] = useState('test');
+  const [showModal, setShowModal] = useState(false);
+  const [success, setSuccess] = useState(null);
 
-  if (userRole === "admin") {
-    setClientData('clients');
-  } else if (userRole === "test") {
-    setClientData("testClients");
-  } else {
-      console.log("Nothing to display")
-  }
+  const [dogName, setDogName] = useState('');
+  const [ownerName, setOwnerName] = useState('');
 
+
+  useEffect(() => {
+    if (userRole === "admin") {
+      setClientData('clients');
+    } else if (userRole === "test") {
+      setClientData("testClients");
+    } else {
+      console.log("Nothing to display");
+    }
+  }, [userRole]);
     
+
     // const [reactive, setReactive] = useState(false);
     // const [aggression, setAggression] = useState(false); 
-    const [success, setSuccess] = useState(null)
+    const handleModalClose = () => {
+      setShowModal(false)
+      handleContentSwitch("clientMap");
+  }
 
     const handleNew = async (values) => {
       try {
@@ -68,11 +80,13 @@ const PrivateTrainingForm = (userRole) => {
             },
           ],
         };
-    
+        setOwnerName(values.ownerName);
+        setDogName(values.dogName);
 
         await addDoc(collectionRef, payload);
     
         // If the above line is reached, it means the document was added successfully
+        setShowModal(true);
         setSuccess(true);
       } catch (error) {
         // Handle errors by setting success to false
@@ -83,7 +97,7 @@ const PrivateTrainingForm = (userRole) => {
 
 
     return (
-        <Container className="mt-5">
+        <Container className="m-5 Dashboard">
         <Formik
           initialValues={{
             ownerName: '',
@@ -132,19 +146,19 @@ const PrivateTrainingForm = (userRole) => {
               </Row>
 
               <Row>                
-                <Col className="m-1 formGroup">
-                  <label htmlFor="ownerName" className="formTitles">Owner Name</label>
-                    <Field type="text" name="ownerName" placeholder="Owner Name" />
+                <Col className=" formGroup">
+                  <Label htmlFor="ownerName" className="formTitles">Owner Name</Label>
+                    <Field type="text" name="ownerName"  id="ownerName" placeholder="Owner Name"/>
                 </Col>
              
-                <Col className="m-1 formGroup">
-                  <label htmlFor="phone" className="formTitles">Phone Num</label>
+                <Col className=" formGroup">
+                  <Label htmlFor="phone" className="formTitles">Phone Num</Label>
                     <Field type="text" name="phone" placeholder="Phone Num" />
 
                 </Col>
 
-                <Col className="m-1 formGroup">
-                  <label htmlFor="email" className="formTitles">Email</label>
+                <Col className=" formGroup">
+                  <Label htmlFor="email" className="formTitles">Email</Label>
                     <Field type="text" name="email" placeholder="Email" />
                   
                 </Col>
@@ -157,19 +171,24 @@ const PrivateTrainingForm = (userRole) => {
                   <h4>Dog Information</h4>
                 </Col>
               </Row>
+
               <Row>
-                <Col xs='2'>
-                  <label htmlFor="dogName" className="formTitles">Dog Name</label>
-                  <Field type="text" name="dogName" placeholder="Dog Name" />
+                <Col md='2' className="formGroup">
+                  <Label htmlFor="dogName" className="formTitles">Dog name</Label>
+                  <Field type="text" name="dogName" id='dogName' placeholder="Dog Name"
+            />
                 </Col>
-                <Col xs='2'>
-                  <label htmlFor="breed" className="formTitles">Breed</label>
+
+                <Col md='2' className="formGroup">
+                  <Label htmlFor="breed" className="formTitles">Breed</Label>
                   <Field type="text" name="breed" placeholder="Breed" />
                 </Col>
-                <Col xs='2'>
-                  <label htmlFor="age" className="formTitles">Age</label>
+
+                <Col md='2'className="formGroup">
+                  <Label htmlFor="age" className="formTitles">Age</Label>
                   <Field type="text" name="age" placeholder="Age" />
                 </Col>
+
               </Row>
               <Row className="mt-4">
                 <Col>
@@ -218,6 +237,15 @@ const PrivateTrainingForm = (userRole) => {
       </Row>
           </Form>
         </Formik>
+
+
+        <Modal isOpen={showModal}>
+          <ModalHeader toggle={handleModalClose}><p>Client Added</p></ModalHeader>
+          <ModalBody>
+
+            <h3>{ownerName} with {dogName} were successfully added</h3>
+          </ModalBody>
+        </Modal>
     </Container>
     )
 }

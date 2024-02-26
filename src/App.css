@@ -39,16 +39,14 @@
 }
 
 
-h2 {
-  color: white;
-}
 
 
 
 .app-background {
   background: rgb(220,242,241);
   background: linear-gradient(0deg, rgba(220,242,241,0.5) 0%, rgba(127,199,217,0.5) 100%);
-  min-height: 100vh
+  min-height: 100vh;
+  padding-bottom: 60px;
 }
 
 .loginMenu {
@@ -217,3 +215,390 @@ ul {
   text-align: center;
 }
 
+.loginTitle {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: rgb(33, 131, 164);
+  text-shadow: 
+  -1px -1px 0 #fefefe,
+  1px -1px 0 #ffffff,
+  -1px 1px 0 #ffffff,
+  1px 1px 0 #ffffff;
+}
+
+.loginButton, .loginButton, .createUserButton {
+  background: rgb(131,58,180);
+  background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(29,30,253,1) 50%, rgba(162,69,252,1) 100%);
+  border-style: none;
+  max-width: 50%;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+.loginButton {
+  background: rgb(34,193,195);
+  /* background: linear-gradient(90deg, rgba(34,193,195,1) 0%, rgba(65,45,253,1) 100%); */
+  animation-name: wave;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+  transition: ease;
+
+}
+
+@keyframes wave {
+  0%  {background-color: rgba(34,193,195);}
+  100% {background-color: rgba(162,69,252,1);}
+}
+
+.createUserButton {
+  background: linear-gradient(90deg, rgba(31,185,187,1) 0%, rgba(50,106,251,1) 33%, rgba(50,93,251,1) 56%, rgba(111,50,251,1) 80%);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+@keyframes gradient {
+  0% {
+      background-position: 0% 0%;
+  }
+  50% {
+      background-position: 100% 100%;
+  }
+  100% {
+      background-position: 0% 0%;
+  }
+}
+
+
+.loginBox {
+    box-shadow: 0 0 5px 5px linear-gradient(90deg, rgba(31,185,187,1) 0%, rgba(50,106,251,1) 33%, rgba(50,93,251,1) 56%, rgba(111,50,251,1) 80%);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+
+
+
+/* CSS for card container */
+.card-container {
+  perspective: 1000px;
+}
+
+/* CSS for the card */
+.card {
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+/* CSS for the front of the card */
+.card-front {
+  position: absolute;
+
+}
+
+/* CSS for the back of the card */
+.card-back {
+  position: absolute;
+  transform: rotateY(180deg);
+  
+}
+
+/* CSS for the flip animation */
+.card.flip {
+  transform: rotateY(180deg);
+}
+
+.rotate {
+  transform: rotateY(180deg);
+  transition: transform 1.2s;
+}
+
+
+.accessInput {
+  border-radius: 10px;
+  width: 75%;
+  border: none;
+  box-shadow: 0 0 4px 1px rgba(23, 82, 150, 0.622);
+}
+
+.accessInput:focus {
+  background-color: rgb(119, 181, 243);
+  color: rgb(0, 0, 0);
+  outline: none;
+}
+
+.headerBar {
+  background-color: "#5B6BF5";
+  color: "#5B6BF5"
+}
+
+
+.cardText {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #888888
+}
+
+.classIcon {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  width: 70%;
+  height: 70%;
+  margin-top: 10px;
+}
+
+
+.link {
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit text color */
+  display: inline-block;
+}
+.link:hover .cardText{
+  text-decoration: underline;
+  color: #5B6BF5;
+}
+
+.link:hover .classIcon {
+  filter: drop-shadow(0px 0px 3px #5b6af5b5);
+}
+
+.classDisplay {
+  background-color: #f8f8f8;
+  padding: 30px;
+  margin: 10px;
+  border: 1px solid #5b6af5b5;
+  border-radius: 20px;
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.42);
+}
+
+.registerButton {
+  border: 4px solid #0091D6;
+  color: #0091D6;
+  border-radius: 25px;
+  padding: 4px 15px;
+  margin-left: 5px;
+  font-weight: 600;
+}
+
+.registerButton:hover {
+  background-color: #7dd1f846;
+}
+
+.specialNotes {
+  color: red;
+  font-weight: 600;
+  font-style: italic;
+}
+
+
+
+.usersName {
+  color: white;
+  font-weight: 600;
+}
+
+
+.classInfo {
+  margin-top: -20px;
+  color: #888888;
+  font-size: smaller;
+}
+
+.trainingClassesContainer {
+  background-color: white;
+  padding: 10px;
+  border-radius: 25px;
+}
+
+
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f8f9fa;
+  padding: 10px 0; 
+  text-align: center;
+  color: #333;
+  margin-top: 40px; 
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%; /* Set minimum height to fill the viewport */
+  background-color: #5B6BF5;
+  color: white;
+}
+
+.profile-page {
+  min-height: 100vh
+}
+
+
+.profile-container.fixed-left {
+  /* position: fixed; */
+  top: 0;
+  bottom: 0;
+  left: 0;
+  color: white;
+  overflow-y: auto; /* Enable vertical scrolling if needed */
+}
+
+
+.profileButtons {
+  color: white;
+  background-color: #365486;
+  border: none;
+  margin-bottom: 10px;
+}
+
+.profileButtons:hover {
+  background-color: #0091D6;
+}
+
+.adminNavLink {
+  color: red
+}
+
+
+/* Check out page */
+.cartListItem {
+  background-color: white;
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #5b6af5b5;
+  border-radius: 5px;
+  
+}
+
+.checkoutItemsContainer {
+  background-color: white;
+  border-radius: 25px;
+  margin: 10px;
+  padding: 20px;
+  box-shadow: 2.5px 4px 1px rgba(0, 0, 0, 0.42);
+  
+}
+
+.cartListItem p {
+  margin-bottom: 0;
+  margin-left: 5px; 
+}
+.checkoutTrainer {
+  font-size: larger;
+  font-weight: 500;
+
+}
+
+.trashCan {
+  color: red;
+  border: none;
+  background-color: white;
+}
+.removeFromCartButton {
+  border: 1px solid red;
+  background-color: white;
+  border-radius: 50%;
+
+}
+.checkoutSummary {
+  margin-bottom: 0;
+  margin-left: 5px;
+}
+.checkoutSummaryHeader {
+  margin-bottom: 0;
+  text-decoration: underline;
+}
+
+.totalCost {
+  color: #0091D6;
+  font-weight: 500;
+  font-size: large;
+}
+
+
+
+
+.dateButton {
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+  color: #5b6af5b5
+}
+.dateButton:hover {
+  filter: drop-shadow(0px 0px 3px #5b6af5b5);
+}
+
+.date-picker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.date-picker-month {
+  font-size: 5.4rem;
+  margin-bottom: 10px;
+}
+
+.date-picker-nav {
+  margin-bottom: 10px;
+}
+
+.date-picker-days {
+  display: flex;
+  
+}
+
+.date-picker-day {
+  margin: 0 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  border: 1px solid #5b6af5b5;
+
+}
+
+.date-picker-day.today {
+  font-weight: bold;
+}
+
+.date-picker-day.selected {
+
+  color: #5B6BF5;
+  font-weight: 700;
+  font-size: x-large;
+}
+
+
+
+.faIcon {
+  font-size: x-large;
+}
+
+
+.usersDogContainer {
+  min-height: max-content;
+  background-color: white;
+  padding: 30px;
+  border-radius: 25px;
+
+  border: 3px solid #5B6BF5
+}
+
+.usersDogContainer button {
+  border: 3px solid #5B6BF5;
+  background-color: white;
+  border-radius: 25px;
+  padding: 5px 15px;
+}
+.usersDogContainer button:hover {
+  background-color: #5b6af55c;
+}
+
+.userDogTitle {
+  font-size: 53px;
+  color: #5B6BF5
+}
